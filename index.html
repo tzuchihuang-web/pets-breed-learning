@@ -48,8 +48,9 @@
             transition: transform 0.3s ease;
         }
 
-        .dog:hover {
-            transform: scale(1.1) rotate(5deg);
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
         }
 
         @keyframes wiggle {
@@ -57,8 +58,34 @@
             50% { transform: rotate(3deg); }
         }
 
+        @keyframes tail-wag {
+            0%, 100% { transform: rotate(-10deg); }
+            50% { transform: rotate(10deg); }
+        }
+
+        .dog {
+            cursor: pointer;
+        }
+
         .dog:hover {
-            animation: wiggle 0.5s infinite;
+            animation: bounce 0.5s infinite, wiggle 1s infinite;
+        }
+
+        .dog path[stroke="#8B4513"],  /* Wagging tails */
+        .dog path[stroke="#F4A460"],
+        .dog path[stroke="#FFA07A"] {
+            transform-origin: left center;
+            animation: tail-wag 1s infinite;
+        }
+
+        /* Add subtle floating animation to sleeping dog's ZZZs */
+        .dog text {
+            animation: float 2s infinite ease-in-out;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0); }
+            50% { transform: translate(-2px, -2px); }
         }
 
         .dog img {
@@ -106,34 +133,94 @@
         <h1>Pets Breed Learning</h1>
         <p>Welcome to a journey of understanding and identifying different pet breeds!</p>
         <div class="dogs-container">
-            <!-- Dogs in various poses like the image -->
+            <!-- Sitting dog looking up -->
             <div class="dog">
                 <svg viewBox="0 0 100 100">
                     <path d="M50,20 Q60,20 65,30 T80,40 Q85,45 80,50 T70,60 Q65,65 60,70 T50,80 Q45,85 40,80 T30,70 Q25,65 20,60 T30,40 Q35,35 40,30 T50,20" fill="#FFD700"/>
                     <circle cx="40" cy="35" r="2" fill="#000"/>
                     <path d="M45,40 Q50,42 55,40" fill="none" stroke="#000" stroke-width="1"/>
+                    <!-- Bow tie -->
+                    <path d="M48,45 L52,45 L50,48 Z" fill="#4169E1"/>
                 </svg>
             </div>
+            <!-- Playful jumping dog -->
             <div class="dog">
                 <svg viewBox="0 0 100 100">
                     <path d="M30,30 Q40,20 50,30 T70,40 Q80,50 70,60 T50,70 Q30,60 40,50 T30,30" fill="#8B4513"/>
                     <circle cx="45" cy="40" r="2" fill="#000"/>
                     <path d="M50,45 Q55,47 60,45" fill="none" stroke="#000" stroke-width="1"/>
+                    <!-- Wagging tail -->
+                    <path d="M70,50 Q75,45 80,50 Q85,55 80,60" fill="none" stroke="#8B4513" stroke-width="3"/>
                 </svg>
             </div>
+            <!-- Sleeping curled up dog -->
             <div class="dog">
                 <svg viewBox="0 0 100 100">
                     <path d="M40,20 Q50,10 60,20 T80,40 Q90,50 80,60 T60,80 Q50,90 40,80 T20,60 Q10,50 20,40 T40,20" fill="#808080"/>
-                    <circle cx="35" cy="35" r="2" fill="#000"/>
-                    <path d="M40,40 Q45,42 50,40" fill="none" stroke="#000" stroke-width="1"/>
+                    <!-- Closed eyes -->
+                    <path d="M35,35 Q38,33 41,35" fill="none" stroke="#000" stroke-width="1"/>
+                    <path d="M45,35 Q48,33 51,35" fill="none" stroke="#000" stroke-width="1"/>
+                    <!-- ZZZ -->
+                    <text x="70" y="30" font-size="10" fill="#666">z</text>
+                    <text x="75" y="25" font-size="12" fill="#666">Z</text>
                 </svg>
             </div>
-            <!-- Add more dogs with different colors and poses -->
+            <!-- Standing alert dog -->
             <div class="dog">
                 <svg viewBox="0 0 100 100">
                     <path d="M30,40 Q40,30 50,40 T70,50 Q80,60 70,70 T50,80 Q30,70 40,60 T30,40" fill="#DEB887"/>
                     <circle cx="45" cy="50" r="2" fill="#000"/>
                     <path d="M50,55 Q55,57 60,55" fill="none" stroke="#000" stroke-width="1"/>
+                    <!-- Pointy ears -->
+                    <path d="M35,35 L30,25 L40,35" fill="#DEB887"/>
+                    <path d="M65,35 L70,25 L60,35" fill="#DEB887"/>
+                </svg>
+            </div>
+            <!-- Chow Chow fluffy dog -->
+            <div class="dog">
+                <svg viewBox="0 0 100 100">
+                    <path d="M50,30 Q65,30 75,45 T80,70 Q70,85 50,85 Q30,85 20,70 T25,45 Q35,30 50,30" fill="#D2691E"/>
+                    <!-- Fluffy fur effects -->
+                    <path d="M25,50 Q35,45 45,50 T65,50 Q75,45 85,50" fill="none" stroke="#A0522D" stroke-width="2"/>
+                    <path d="M25,60 Q35,55 45,60 T65,60 Q75,55 85,60" fill="none" stroke="#A0522D" stroke-width="2"/>
+                    <circle cx="40" cy="45" r="2" fill="#000"/>
+                    <circle cx="60" cy="45" r="2" fill="#000"/>
+                    <path d="M45,55 Q50,58 55,55" fill="none" stroke="#000" stroke-width="1"/>
+                </svg>
+            </div>
+            <!-- Running dog -->
+            <div class="dog">
+                <svg viewBox="0 0 100 100">
+                    <path d="M40,40 Q50,35 60,40 T75,50 Q80,60 70,70 T50,75 Q35,70 30,60 T40,40" fill="#F4A460"/>
+                    <circle cx="45" cy="45" r="2" fill="#000"/>
+                    <!-- Running legs -->
+                    <path d="M40,70 L35,85" fill="none" stroke="#F4A460" stroke-width="3"/>
+                    <path d="M60,70 L65,85" fill="none" stroke="#F4A460" stroke-width="3"/>
+                    <!-- Flying ears -->
+                    <path d="M45,40 L35,30" fill="none" stroke="#F4A460" stroke-width="3"/>
+                </svg>
+            </div>
+            <!-- Beagle with long ears -->
+            <div class="dog">
+                <svg viewBox="0 0 100 100">
+                    <path d="M50,25 Q65,25 75,40 T80,65 Q70,80 50,80 Q30,80 20,65 T25,40 Q35,25 50,25" fill="#F5DEB3"/>
+                    <!-- Long ears -->
+                    <path d="M30,40 Q25,50 30,60" fill="none" stroke="#D2B48C" stroke-width="6"/>
+                    <path d="M70,40 Q75,50 70,60" fill="none" stroke="#D2B48C" stroke-width="6"/>
+                    <circle cx="45" cy="45" r="2" fill="#000"/>
+                    <circle cx="55" cy="45" r="2" fill="#000"/>
+                    <path d="M48,55 Q50,57 52,55" fill="none" stroke="#000" stroke-width="1"/>
+                </svg>
+            </div>
+            <!-- Small puppy -->
+            <div class="dog">
+                <svg viewBox="0 0 100 100">
+                    <path d="M50,40 Q60,40 65,50 T70,65 Q65,75 50,75 Q35,75 30,65 T35,50 Q40,40 50,40" fill="#FFA07A"/>
+                    <!-- Puppy eyes -->
+                    <circle cx="45" cy="55" r="3" fill="#000"/>
+                    <circle cx="55" cy="55" r="3" fill="#000"/>
+                    <!-- Tiny tail -->
+                    <path d="M70,60 Q75,58 77,62" fill="none" stroke="#FFA07A" stroke-width="2"/>
                 </svg>
             </div>
         </div>
