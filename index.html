@@ -12,71 +12,132 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            font-family: 'Comic Sans MS', cursive, sans-serif;
             line-height: 1.6;
             min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            /* turquoise / aqua pastel gradient like the image */
-            background: linear-gradient(135deg, #7de8d7 0%, #9be8ff 100%);
+            background: #fff;
             padding: 2rem;
+            color: #333;
         }
 
         .content {
-            max-width: 800px;
-            padding: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
             text-align: center;
-            animation: float 6s ease-in-out infinite;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-20px); }
         }
 
         h1 {
-            color: #2d3436;
-            margin-bottom: 1.5rem;
+            color: #333;
+            margin-bottom: 2rem;
             font-size: 2.5rem;
-            /* pastel pink -> purple gradient to echo the image hair and accents */
-            background: linear-gradient(to right, #ff8fb1, #b48efc);
-            background-clip: text;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            position: relative;
         }
 
-        p {
-            color: #4b5b5b;
-            font-size: 1.2rem;
-            margin-bottom: 1.5rem;
-            transform: scale(1);
+        .dogs-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .dog {
+            width: 150px;
+            height: 150px;
+            margin: 0 auto;
+            position: relative;
             transition: transform 0.3s ease;
         }
 
-        p:hover {
-            transform: scale(1.02);
+        .dog:hover {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        @keyframes wiggle {
+            0%, 100% { transform: rotate(-3deg); }
+            50% { transform: rotate(3deg); }
+        }
+
+        .dog:hover {
+            animation: wiggle 0.5s infinite;
+        }
+
+        .dog img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        p {
+            color: #666;
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .highlight {
-            color: #ff9ec2;
-            font-weight: 600;
+            color: #333;
+            font-weight: bold;
             font-size: 1.4rem;
             padding: 1rem;
-            background: rgba(255, 255, 255, 0.4);
-            border-radius: 30px;
+            margin-top: 2rem;
             display: inline-block;
-            backdrop-filter: blur(5px);
-            text-shadow: 0 1px 2px rgba(0,0,0,0.1);
+        }
+
+        /* Background pattern with subtle paw prints */
+        .paw-pattern {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.1;
+            pointer-events: none;
+            background-image: radial-gradient(circle, #ccc 1px, transparent 1px);
+            background-size: 50px 50px;
         }
     </style>
 </head>
 <body>
+    <div class="paw-pattern"></div>
     <div class="content">
         <h1>Pets Breed Learning</h1>
-        <p>Welcome to a journey of understanding and identifying different pet breeds! This project is dedicated to helping people learn about various breeds of pets through an intuitive and engaging platform.</p>
-        <p>Whether you're a pet owner, enthusiast, or professional, our tools and resources will help you better understand the unique characteristics and traits of different pet breeds.</p>
-        <p class="highlight">✨ Explore, learn, and discover the fascinating world of pet breeds! 🐾</p>
+        <p>Welcome to a journey of understanding and identifying different pet breeds!</p>
+        <div class="dogs-container">
+            <!-- Dogs in various poses like the image -->
+            <div class="dog">
+                <svg viewBox="0 0 100 100">
+                    <path d="M50,20 Q60,20 65,30 T80,40 Q85,45 80,50 T70,60 Q65,65 60,70 T50,80 Q45,85 40,80 T30,70 Q25,65 20,60 T30,40 Q35,35 40,30 T50,20" fill="#FFD700"/>
+                    <circle cx="40" cy="35" r="2" fill="#000"/>
+                    <path d="M45,40 Q50,42 55,40" fill="none" stroke="#000" stroke-width="1"/>
+                </svg>
+            </div>
+            <div class="dog">
+                <svg viewBox="0 0 100 100">
+                    <path d="M30,30 Q40,20 50,30 T70,40 Q80,50 70,60 T50,70 Q30,60 40,50 T30,30" fill="#8B4513"/>
+                    <circle cx="45" cy="40" r="2" fill="#000"/>
+                    <path d="M50,45 Q55,47 60,45" fill="none" stroke="#000" stroke-width="1"/>
+                </svg>
+            </div>
+            <div class="dog">
+                <svg viewBox="0 0 100 100">
+                    <path d="M40,20 Q50,10 60,20 T80,40 Q90,50 80,60 T60,80 Q50,90 40,80 T20,60 Q10,50 20,40 T40,20" fill="#808080"/>
+                    <circle cx="35" cy="35" r="2" fill="#000"/>
+                    <path d="M40,40 Q45,42 50,40" fill="none" stroke="#000" stroke-width="1"/>
+                </svg>
+            </div>
+            <!-- Add more dogs with different colors and poses -->
+            <div class="dog">
+                <svg viewBox="0 0 100 100">
+                    <path d="M30,40 Q40,30 50,40 T70,50 Q80,60 70,70 T50,80 Q30,70 40,60 T30,40" fill="#DEB887"/>
+                    <circle cx="45" cy="50" r="2" fill="#000"/>
+                    <path d="M50,55 Q55,57 60,55" fill="none" stroke="#000" stroke-width="1"/>
+                </svg>
+            </div>
+        </div>
+        <p class="highlight">🐾 Click on any dog to learn more! 🐾</p>
     </div>
 </body>
 </html>
