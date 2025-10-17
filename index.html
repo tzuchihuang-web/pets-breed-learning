@@ -23,13 +23,16 @@
             padding: 2rem;
         }
 
-        .container {
+        .content {
             max-width: 800px;
-            background: rgba(255,255,255,0.9);
-            padding: 3rem;
-            border-radius: 20px;
-            /* slightly softer, colorful shadow to match pastel vibe */
-            box-shadow: 0 12px 30px rgba(34,139,150,0.08);
+            padding: 2rem;
+            text-align: center;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
         }
 
         h1 {
@@ -45,22 +48,35 @@
 
         p {
             color: #4b5b5b;
-            font-size: 1.1rem;
+            font-size: 1.2rem;
             margin-bottom: 1.5rem;
+            transform: scale(1);
+            transition: transform 0.3s ease;
+        }
+
+        p:hover {
+            transform: scale(1.02);
         }
 
         .highlight {
-            color: #ff9ec2; /* soft pink highlight */
+            color: #ff9ec2;
             font-weight: 600;
+            font-size: 1.4rem;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.4);
+            border-radius: 30px;
+            display: inline-block;
+            backdrop-filter: blur(5px);
+            text-shadow: 0 1px 2px rgba(0,0,0,0.1);
         }
     </style>
 </head>
 <body>
-    <div class="container">
+    <div class="content">
         <h1>Pets Breed Learning</h1>
         <p>Welcome to a journey of understanding and identifying different pet breeds! This project is dedicated to helping people learn about various breeds of pets through an intuitive and engaging platform.</p>
         <p>Whether you're a pet owner, enthusiast, or professional, our tools and resources will help you better understand the unique characteristics and traits of different pet breeds.</p>
-        <p class="highlight">Explore, learn, and discover the fascinating world of pet breeds!</p>
+        <p class="highlight">✨ Explore, learn, and discover the fascinating world of pet breeds! 🐾</p>
     </div>
 </body>
 </html>
